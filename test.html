@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <style>
+        #par{
+            width:200px;
+            height: 200px;
+            background: #bbbbbb;
+        }
+
+        #chi{
+
+            width: 40px;
+            height: 40px;
+            background: green;
+            margin: auto;
+            position: relative;
+        }
+        #chi::before {
+            width: 0px;
+            height: 0px;
+            content: "";
+            position: absolute;
+            border-top: 50px solid transparent;
+            border-left: 10px solid transparent;
+            border-right: 10px solid red;
+            border-bottom: 50px solid transparent;
+            top: 0px;
+            left: -100px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="par">
+<div id="chi"></div>
+</div>
+
+
+<script>
+    document.getElementById('par').addEventListener('click',function (event){
+
+        console.log('par');
+    })
+    document.getElementById('chi').onclick=function (event){
+        event.stopPropagation();
+
+        console.log('chi');
+    }
+
+
+</script>
+
+
+</body>
+</html>
